@@ -1,0 +1,44 @@
+/* Agrega esto a tu archivo mapa.css */
+.modal {
+  /*  display: none;  Oculto por defecto */
+    position: fixed; /* Permanece en su lugar */
+    z-index: 1; /* Se muestra en la parte superior */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Altura completa */
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+  }
+ 
+
+
+
+
+
+
+
+
+
+<!-- Agrega esto dentro de tu contenedor existente donde se encuentra el mapa SVG -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+      <p>xd </p>
+
+
+
+ <script src="mapa.js"></script>  
