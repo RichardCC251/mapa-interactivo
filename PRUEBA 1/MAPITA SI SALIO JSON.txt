@@ -1,0 +1,38 @@
+document.addEventListener('DOMContentLoaded', () => {
+    fetch('./mapa.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error al cargar el archivo JSON');
+            }
+            return response.json();
+        })
+        .then(estadosData => {
+            const container = document.getElementById('estados-container');
+
+            estadosData.forEach(estado => {
+                const card = document.createElement('div');
+                card.className = 'card';
+
+                card.innerHTML = `
+                    <h2>${estado.nombre_estado}</h2>
+                    <ul>
+                        <li><strong>Capital:</strong> ${estado.capital}</li>
+                        <li><strong>Población:</strong> ${estado.poblacion}</li>
+                        <li><strong>Clima:</strong> ${estado.clima}</li>
+                        <li><strong>Animal endémico:</strong> ${estado.animal_endemico}</li>
+                        <li><strong>Flora y fauna:</strong> ${estado.flora_fauna}</li>
+                        <li><strong>Dato 1:</strong> ${estado.dato1}</li>
+                        <li><strong>Dato 2:</strong> ${estado.dato2}</li>
+                        <li><strong>Dato 3:</strong> ${estado.dato3}</li>
+                    </ul>
+                `;
+
+                container.appendChild(card);
+            });
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            const container = document.getElementById('estados-container');
+            container.innerHTML = '<p>Error al cargar los datos. Inténtalo de nuevo más tarde.</p>';
+        });
+});
